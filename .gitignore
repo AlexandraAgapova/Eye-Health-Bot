@@ -1,1 +1,9 @@
 .venv/
+src/dataset/disease/*
+src/dataset/good/*
+src/dataset/Dataset/Bags_under_the_eyes/*
+src/dataset/Dataset/Dark_circles_under_the_eyes/*
+src/dataset/Dataset/Eye_diseases/*
+src/dataset/Dataset/Healthy/*
+src/dataset/Dataset/Swelling_of_the_eyelids/*
+src/dataset/csv/*
