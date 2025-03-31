@@ -15,12 +15,12 @@ Firstly you need to install needable libraries for your python interpreter or cr
 
 
 To train and use RF:
-1. Load images in src/dataset/Dataset/ directories with predefined names of classes
-2. Execute refactor_dataset.py in the same directory
-3. Execute src/creation_data/create_csv_from_images.py
-4. Execute learn.py in src/models/RandomForest You've learned the model
-5. configure your csv file like in directory dataset/csv and call it test.csv
-6. Execute Apply_model.py
+1. Load images in data/raw/Dataset/ directories with predefined names of classes
+2. Execute refactor_dataset.py from src/data_preprocessing
+3. Execute src/data_preprocessing/create_csv_from_images.py
+4. Execute train.py in src/models/RandomForest You've trained the model
+5. Configure your csv file like in directory data/processed/csv and call it test.csv
+6. Execute inference.py
 
 
 Have a nice day)
