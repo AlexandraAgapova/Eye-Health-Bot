@@ -74,7 +74,7 @@ def process_image(image_path, label):
     }
 
 def process_dataset():
-    dataset_dirs = {"../dataset/disease": 0, "../dataset/good": 1}
+    dataset_dirs = {"../../data/processed/disease": 0, "../../data/processed/healthy": 1}
     results = []
     
     for dir_path, label in dataset_dirs.items():
@@ -92,8 +92,8 @@ def process_dataset():
                 results.append(result)
     
     df = pd.DataFrame(results)
-    os.makedirs("../dataset/csv", exist_ok=True)
-    csv_path = "../dataset/csv/eye_disease.csv"
+    os.makedirs("../../data/processed/csv", exist_ok=True)
+    csv_path = "../../data/processed/csv/eye_disease.csv"
     df.to_csv(csv_path, sep=';', index=False)
     print(f"Results saved to {csv_path}")
 

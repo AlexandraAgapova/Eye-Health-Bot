@@ -8,12 +8,12 @@ mp_face_detection = mp.solutions.face_detection
 face_detector = mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5)
 
 # Пути к папкам
-source_dirs = ["Bags_under_the_eyes", "Dark_circles_under_the_eyes", "Swelling_of_the_eyelids"]
-healthy_dir = "Healthy"
+source_dirs = ["../../data/raw/Dataset/Bags_under_the_eyes", "../../data/raw/Dataset/Dark_circles_under_the_eyes", "../../data/raw/Dataset/Swelling_of_the_eyelids"]
+healthy_dir = "../../data/raw/Dataset/Healthy"
 
 # Куда копировать файлы
-output_good = "../good"
-output_disease = "../disease"
+output_good = "../../data/processed/healthy"
+output_disease = "../../data/processed/disease"
 
 def clear_directory(directory):
     """ Очищает указанную директорию перед сохранением новых файлов. """

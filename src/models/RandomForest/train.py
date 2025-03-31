@@ -8,7 +8,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
 # Шаг 1: Загрузка данных
-csv_file_path = "../../dataset/csv/eye_disease.csv"
+csv_file_path = "../../../data/processed/csv/eye_disease.csv"
 data = pd.read_csv(csv_file_path, delimiter=";")
 print("OK")
 

@@ -11,6 +11,16 @@ There are two programs which allows to lead around interesting area for us.
 HowTo:
 Firstly you need to install needable libraries for your python interpreter or create an virtual environment (venv). I recommend you to use ```$ python3 -m venv .venv``` this command will make directory ".venv" with virtual environment. To activate an environment ```$ source working_directory/.venv/bin/activate```. To deactivate environment ```$ deactivate```.
 
-Now you can use our project files. Type 'q' to quit the program. There are only two of them yet but in the nearest future there will be lots of good.
+
+
+
+To train and use RF:
+1. Load images in src/dataset/Dataset/ directories with predefined names of classes
+2. Execute refactor_dataset.py in the same directory
+3. Execute src/creation_data/create_csv_from_images.py
+4. Execute learn.py in src/models/RandomForest You've learned the model
+5. configure your csv file like in directory dataset/csv and call it test.csv
+6. Execute Apply_model.py
+
 
 Have a nice day)
