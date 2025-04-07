@@ -84,7 +84,7 @@ def process_dataset():
         
         for file_name in os.listdir(dir_path):
             file_path = os.path.join(dir_path, file_name)
-            if not file_name.lower().endswith((".jpg", ".png", ".jpeg")):
+            if not file_name.lower().endswith((".jpg", ".png", ".jpeg", ".webp")):
                 continue
             
             result = process_image(file_path, label)
