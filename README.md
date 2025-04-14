@@ -4,9 +4,6 @@ This project is ML model with UI which can detect bags under the eyes and show 2
 
 I used Python 3.10.6
 
-ver 0.0.1 
-There are two programs which allows to lead around interesting area for us.
-
 
 HowTo:
 Firstly you need to install needable libraries for your python interpreter or create an virtual environment (venv). I recommend you to use ```$ python3 -m venv .venv``` this command will make directory ".venv" with virtual environment. To activate an environment ```$ source working_directory/.venv/bin/activate```. After activation you have to install all libraries from <<file requirements.txt>> Use command ```pip install -r requirements.txt``` in directory ```$*/ML-PROJECT```. To deactivate environment ```$ deactivate```.
