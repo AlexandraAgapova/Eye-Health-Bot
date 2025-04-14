@@ -2,7 +2,7 @@
 
 This project is ML model with UI which can detect bags under the eyes and show 2d view of face without bags. 
 
-I used Python 3.10.6
+We used Python 3.10
 
 
 HowTo:
