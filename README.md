@@ -4,8 +4,8 @@ This project is ML model which can detect bags under the eyes and show 2d view o
 
 We used Python 3.10
 
-ver 0.0.1 
-There are two programs which allows to lead around interesting area for us.
+ver 0.1.0
+Now there is a test code to train Random Forest.
 
 
 HowTo:
