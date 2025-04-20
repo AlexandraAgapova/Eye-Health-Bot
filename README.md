@@ -1,8 +1,8 @@
 # Identification of of bags under the eyes and swelling of the eyes
 
-This project is ML model with UI which can detect bags under the eyes and show 2d view of face without bags. 
+This project is ML model which can detect bags under the eyes and show 2d view of face without bags. 
 
-I used Python 3.10.6
+We used Python 3.10
 
 ver 0.0.1 
 There are two programs which allows to lead around interesting area for us.
