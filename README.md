@@ -2,11 +2,10 @@
 
 This project is ML model which can detect bags under the eyes and show 2d view of face without bags. 
 
-We used Python 3.10
-
 
 ver 0.1.0
-Now there is a test code to train Random Forest.
+Now there is a test code to train and inference Random Forest.
+
 
 
 HowTo:
