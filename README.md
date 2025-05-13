@@ -24,7 +24,10 @@ To train and use RF:
 5. Configure your csv file like in directory data/processed/csv and label it "test.csv"
 6. Execute inference.py
 
-To train and use YOLOv8
+To train and use YOLOv8:
+
+1. Prepare dataset on classification and put your data into data/proceseed/for_YOLO
+2. use src/models/YOLO/healthy_unhealthy_eye.ipynb to train and inference result
 
 
 Have a nice day)
