@@ -21,9 +21,12 @@ Our plan is to make dataset and to label it we will apply to every image cv2 and
                 enough data to classify it more precisely )
 
 If * returns healthy ----> 0% of diseases
-Else give image to **.
-** returns type of disease and 
+Else give image to **.;
+** returns type of disease and give it to associated model ***
 
  After it train YOLOv8 on this dataset and receive .pt model.
  Futher we will use this model on 25 frames from video stream every time when model will be ready for next set of images.
  Every frame will be cropped as in our training dataset.
+
+
+Our prediction we can put to some generation text model and send received answer to user.

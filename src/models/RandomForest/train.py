@@ -6,6 +6,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import RandomizedSearchCV
+
 
 # Шаг 1: Загрузка данных
 csv_file_path = "../../../data/processed/csv/eye_disease.csv"
@@ -21,7 +23,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # Шаг 4: Применение PCA
-pca = PCA(n_components=9)  # Выбираем 10 компонент (можно изменить)
+pca = PCA(n_components=9)  # Выбираем 9 компонент (можно изменить)
 X_pca = pca.fit_transform(X_scaled)
 
 # Визуализация объясненной дисперсии
@@ -37,7 +39,27 @@ plt.show()
 X_train, X_test, y_train, y_test = train_test_split(X_pca, y, test_size=0.3, random_state=42)
 
 # Шаг 6: Обучение модели Random Forest на PCA-преобразованных данных
-rf_classifier = RandomForestClassifier(n_estimators=200, random_state=42)
+
+
+param_dist = {
+    'n_estimators': [200, 300, 400],
+    'max_depth': [None, 15, 25],
+    'min_samples_split': [2, 5, 10],
+    'max_features': ['sqrt', 'log2', 0.6]
+}
+
+search = RandomizedSearchCV(
+    estimator=RandomForestClassifier(),
+    param_distributions=param_dist,
+    n_iter=30,
+    cv=5,
+    scoring='accuracy'
+)
+
+search.fit(X_train, y_train)
+best_params = search.best_params_
+
+rf_classifier = RandomForestClassifier(n_estimators=best_params["n_estimators"], min_samples_split=best_params["min_samples_split"], max_features=best_params["max_features"],max_depth=best_params["max_depth"])
 rf_classifier.fit(X_train, y_train)
 
 # Шаг 7: Прогнозирование и оценка модели
@@ -52,3 +74,6 @@ import joblib
 joblib.dump(rf_classifier, "random_forest_model.pkl")
 
 print("Модель сохранена!")
+
+
+

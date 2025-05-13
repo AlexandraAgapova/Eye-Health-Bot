@@ -8,8 +8,8 @@ mp_face_detection = mp.solutions.face_detection
 face_detector = mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5)
 
 # Пути к папкам
-source_dirs = ["../../data/raw/Dataset/Bags_under_the_eyes", "../../data/raw/Dataset/Dark_circles_under_the_eyes", "../../data/raw/Dataset/Swelling_of_the_eyelids"]
-healthy_dir = "../../data/raw/Dataset/Healthy"
+source_dirs = ["../../data/raw/Dataset/Bags_under_the_eyes", "../../data/raw/Dataset/Dark_circles_under_the_eyes", "../../data/raw/Dataset/Swelling_of_the_eyelids", "../../data/raw/Dataset/unhealthy"]
+healthy_dirs = ["../../data/raw/Dataset/Healthy", "../../data/raw/Dataset/healthy_rem"]
 
 # Куда копировать файлы
 output_good = "../../data/processed/healthy"
@@ -63,8 +63,13 @@ def copy_and_rename_images(source_folder, destination_folder, start_index=0):
 clear_directory(output_good)
 clear_directory(output_disease)
 
+next_index = 0
+
 # Обрабатываем Healthy -> ../good
-next_index = copy_and_rename_images(healthy_dir, output_good)
+for folder in healthy_dirs:
+    next_index = copy_and_rename_images(folder, output_good, next_index)
+
+next_index = 0
 
 # Обрабатываем disease-категории -> ../disease
 for folder in source_dirs:
