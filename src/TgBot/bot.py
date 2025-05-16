@@ -4,7 +4,7 @@ import re
 import os
 from model import predict_image_class
 
-bot = telebot.TeleBot("")
+bot = telebot.TeleBot("YOUR_TELEGRAM_BOT_TOKEN")
 helloVarious = {"привет", "Привет", "здарова", "приветик", "Приветик", "Здарова"}
 DATA_DIR = "data"
 
