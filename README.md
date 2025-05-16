@@ -1,26 +1,104 @@
-# Identification of of bags under the eyes and swelling of the eyes
+# 👁️ Eye Health Detector Bot
 
-This project is ML model which can detect bags under the eyes and show 2d view of face without bags. 
+Telegram bot that detects and classifies under-eye conditions (eye bags, dark circles) using computer vision (YOLOv11) and provides instant feedback to users.
 
+---
 
-ver 0.1.0
-Now there is a test code to train and inference Random Forest.
+## How It Works
 
+1. User sends a selfie via Telegram.
+2. The bot saves the image locally using the user's Telegram ID.
+3. YOLOv11 model analyzes the under-eye area.
+4. The bot replies with a classification and recommendation:
+   - `-1` – No face detected  
+   - `0` – Healthy eyes  
+   - `1` – Eye bags  
+   - `2` – Dark circles  
 
+---
 
-HowTo:
-Firstly you need to install needable libraries for your python interpreter or create an virtual environment (venv). I recommend you to use ```$ python3 -m venv .venv``` this command will make directory ".venv" with virtual environment. To activate an environment ```$ source working_directory/.venv/bin/activate```. After activation you have to install all libraries from <<file requirements.txt>> Use command ```pip install -r requirements.txt``` in directory ```$*/ML-PROJECT```. To deactivate environment ```$ deactivate```.
+## Project Structure
 
+```
+ML-Project/
+│
+├── data/                    # User images (named by Telegram user_id)
+│   └── README.md
+│
+├── models/
+│   └── YOLOv11/             # YOLOv11 weights + model-specific README
+│
+├── src/
+│   ├── TgBot/               # Telegram bot logic
+│   │   └── README.md
+│   ├── bot.py               # Main bot handler
+│   ├── model.py             # Prediction logic (YOLOv11)
+│   ├── config.py            # Paths, class names, constants
+│
+├── requirements.txt         # Python dependencies
+├── .gitignore               # Excluded files/folders
+└── README.md                # (you are here)
+```
 
-Before training delete all *.txt files from directory data and it's subdirectories. They consist of information about data should be in that directory of project to work properly.
+---
 
-To train and use RF:
-1. Load images in data/raw/Dataset/ directories with predefined names of classes
-2. Execute refactor_dataset.py from src/data_preprocessing
-3. Execute src/data_preprocessing/create_csv_from_images.py
-4. Execute train.py in src/models/RandomForest You've trained the model
-5. Configure your csv file like in directory data/processed/csv and call it test.csv
-6. Execute inference.py
+## 🚀 Quick Start
 
+1. **Clone the repository**
 
-Have a nice day)
+```bash
+git clone https://github.com/your-username/eye-health-bot.git
+cd eye-health-bot
+```
+
+2. **Set up a virtual environment**
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+3. **Install dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+4. **Add your Telegram bot token**
+
+In `src/bot.py`:
+
+```python
+bot = telebot.TeleBot("YOUR_TELEGRAM_BOT_TOKEN")
+```
+
+5. **Download and place model weights**
+
+Place the `yolov11_weights.pt` file in:
+
+```
+models/YOLOv11/yolov11_weights.pt
+```
+
+6. **Run the bot**
+
+```bash
+python src/bot.py
+```
+
+---
+
+## 🛡 Recommendations
+
+- Never push real API tokens or model weights to public repositories.
+- Use `.env` and `python-dotenv` to manage secrets (optional).
+- Keep image storage lightweight — only one image per user is saved (`{user_id}.jpg`).
+
+---
+
+## 📌 Authors & Contributors
+
+This project was crafted with care and curiosity by  
+**Alexandra Agapova** and **Mikhail Sukhanov**.
+
+We hope it helps bring a bit more clarity and confidence to those caring for their eye health. 💙
