@@ -1,1 +1,0 @@
-This directory is for .csv files with ready data to use in training)
