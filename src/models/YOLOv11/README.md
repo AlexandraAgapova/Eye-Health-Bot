@@ -1,13 +1,13 @@
-# 🧠 YOLOv11 Model Directory
+# YOLOv11 Model Directory
 
 This folder contains the trained YOLOv11 model used for classifying under-eye conditions from user-submitted images.
 
-## 📦 Contents
+## Contents
 
 - `yolov11_weights.pt`  
   The PyTorch weights file of the YOLOv11 model. This file is loaded at runtime by the bot for inference.
 
-## 🧠 Model Purpose
+## Model Purpose
 
 The model is trained to:
 
