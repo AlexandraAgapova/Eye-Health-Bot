@@ -22,24 +22,26 @@ Telegram bot that detects and classifies under-eye conditions (eye bags, dark ci
 ## Project Structure
 
 ```
-ML-Project/
-│
-├── data/                    # User images (named by Telegram user_id)
+Eye-Health-Bot/
+├── data/                              # User images (named by Telegram user_id)
 │   └── README.md
-│
-├── models/
-│   └── YOLOv11/             # YOLOv11 weights + model-specific README
-│
 ├── src/
-│   ├── TgBot/               # Telegram bot logic
-│   │   └── README.md
-│   ├── bot.py               # Main bot handler
-│   ├── model.py             # Prediction logic (YOLOv11)
-│   ├── config.py            # Paths, class names, constants
-│
-├── requirements.txt         # Python dependencies
-├── .gitignore               # Excluded files/folders
-└── README.md                # (you are here)
+│   └── TgBot/                         # Telegram bot logic
+│       ├── bot.py                     # Main bot handler
+│       ├── README.md
+│       ├── classifier/
+│       │   ├── classifier.py          # Prediction logic (YOLOv11)
+│       │   ├── README.md   
+│       └── models/
+│           └── YOLOv11/               # YOLOv11 weights
+│               ├── bags_circles.pt
+│               ├── healthy_unhealthy.pt
+│               ├── testing.ipynb
+│               └── README.md
+├── .gitignore                          # Excluded files
+├── README.md                           # (you are here)
+└── requirements.txt                    # Python dependencies
+
 ```
 
 ---
@@ -49,8 +51,8 @@ ML-Project/
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/eye-health-bot.git
-cd eye-health-bot
+git clone https://github.com/AlexandraAgapova/Eye-Health-Bot
+cd Eye-Health-Bot
 ```
 
 2. **Set up a virtual environment**
@@ -68,24 +70,16 @@ pip install -r requirements.txt
 
 4. **Add your Telegram bot token**
 
-In `src/bot.py`:
+In `src/TgBot/bot.py`:
 
 ```python
 bot = telebot.TeleBot("YOUR_TELEGRAM_BOT_TOKEN")
 ```
 
-5. **Download and place model weights**
-
-Place the `yolov11_weights.pt` file in:
-
-```
-models/YOLOv11/yolov11_weights.pt
-```
-
-6. **Run the bot**
+5. **Run the bot**
 
 ```bash
-python src/bot.py
+python src/TgBot/bot.py
 ```
 
 ---
