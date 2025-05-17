@@ -4,7 +4,7 @@ This folder contains the trained YOLOv11 model used for classifying under-eye co
 
 ## Contents
 
-- `yolov11_weights.pt`  
+- `healthy_unhealty.pt` and `bags_circles.pt`  
   The PyTorch weights file of the YOLOv11 model. This file is loaded at runtime by the bot for inference.
 
 ## Model Purpose
