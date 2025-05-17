@@ -31,4 +31,16 @@ data/processed/csv/*
 
 data/sorting/
 
+src/models/YOLO/bags_circles/runs
+
+src/models/YOLO/healthy_unhealthy/classify
+src/models/YOLO/healthy_unhealthy/runs
+src/models/YOLO/healthy_unhealthy/train
+
+*.pt
+!src/classifier/bags_circles.pt
+!src/classifier/healthy_unhealthy.pt
+
+src/models/data/processed
+
 *.pkl

@@ -11,13 +11,13 @@ FACE_LANDMARKS = [10, 109, 67, 103, 54, 21, 162, 127, 227, 137, 177, 215, 138, 1
 
 # Пути к данным
 INPUT_PATHS = {
-    'healthy': '../../data/raw/Dataset/healthy_rem',
-    'unhealthy': '../../data/raw/Dataset/unhealthy'
+    'bags': '../../data/raw/dataset_classify/bags',
+    'dark_circles': '../../data/raw/dataset_classify/darkCycles'
 }
 
 OUTPUT_PATHS = {
-    'healthy': '../../data/processed/for_YOLO/healthy',
-    'unhealthy': '../../data/processed/for_YOLO/unhealthy'
+    'bags': '../../data/processed/for_YOLO_unhealthy/bags',
+    'dark_circles': '../../data/processed/for_YOLO_unhealthy/dark_Cycles'
 }
 
 # Создаем выходные директории, если их нет
@@ -90,7 +90,7 @@ def process_folder(input_folder, output_folder):
         process_image(input_path, output_folder)
 
 # Обрабатываем все папки
-for category in ['healthy', 'unhealthy']:
+for category in ['bags', 'dark_circles']:
     process_folder(INPUT_PATHS[category], OUTPUT_PATHS[category])
 
 # Освобождаем ресурсы
