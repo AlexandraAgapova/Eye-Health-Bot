@@ -1,8 +1,13 @@
+from pyclbr import Class
 import telebot
 import uuid
 import re
 import os
-from model import predict_image_class
+from classifier.classifier import Classifier
+from classifier.classifier import models_
+
+
+model_orchesre = Classifier(models_)
 
 bot = telebot.TeleBot("YOUR_TELEGRAM_BOT_TOKEN")
 helloVarious = {"привет", "Привет", "здарова", "приветик", "Приветик", "Здарова"}
@@ -41,13 +46,14 @@ def download_photo(message):
     with open(file_path, "wb") as new_file:
         new_file.write(downloaded_file)
 
-    prediction = predict_image_class(file_path)
+    prediction = model_orchesre.predict(file_path)
 
     response = {
         -1: "❌ Не удалось распознать лицо. Попробуйте другое фото.",
          0: "✅ Всё в порядке! Глаза выглядят здоровыми.",
          1: "⚠️ Обнаружены мешки под глазами. Рекомендую высыпаться и уменьшить потребление соли.",
          2: "⚠️ Обнаружены тёмные круги. Проверь режим сна и снизьте стресс.",
+         3: "⚠️⚠️⚠️ Обнаружены тёмные круги и мешки под глазами. Проверь режим сна и снизьте стресс.",
     }
 
     bot.send_message(user_id, response.get(prediction, "Произошла ошибка при анализе."))
