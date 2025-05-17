@@ -17,3 +17,18 @@ prediction = rf_model.predict(data_scaled)  # Без PCA
 
 
 print("Предсказание:", prediction)
+
+cnt_healthy = 0
+cnt_disease = 0
+
+for i in range(len(data)):
+    if prediction[i] == 0:
+        cnt_disease+=1
+    else:
+        cnt_healthy+=1
+
+if cnt_disease > cnt_healthy:
+    print("Your face is healthy!)")
+else:
+    print("Your face is bad(")
+          

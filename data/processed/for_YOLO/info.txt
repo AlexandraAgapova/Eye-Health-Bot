@@ -1,0 +1,3 @@
+photos for classification on YOLO
+
+there must be x directories with train and valid pictures

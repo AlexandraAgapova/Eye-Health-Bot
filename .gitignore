@@ -1,5 +1,7 @@
 .venv/
 
+
+
 data/processed/disease/*
 !data/processed/disease/*.txt
 
@@ -18,10 +20,27 @@ data/raw/Dataset/Eye_diseases/*
 data/raw/Dataset/Healthy/*
 !data/raw/Dataset/Healthy/*.txt
 
+data/processed/for_YOLO/*
+!data/processed/for_YOLO/*.txt
+
 data/raw/Dataset/Swelling_of_the_eyelids/*
 !data/raw/Dataset/Swelling_of_the_eyelids/*.txt
 
 data/processed/csv/*
 !data/processed/csv/*.txt
+
+data/sorting/
+
+src/models/YOLO/bags_circles/runs
+
+src/models/YOLO/healthy_unhealthy/classify
+src/models/YOLO/healthy_unhealthy/runs
+src/models/YOLO/healthy_unhealthy/train
+
+*.pt
+!src/classifier/bags_circles.pt
+!src/classifier/healthy_unhealthy.pt
+
+src/models/data/processed
 
 *.pkl

@@ -1,0 +1,72 @@
+Description of all scripts:
+
+1. sorting.py
+You have to put in in folder like that:
+sorting/
+    |
+    |----to_sort/
+    |       |----<image_name>.jpg
+    |       |----<image_name>.jpg
+    |       |----<image_name>.jpg
+    |       |----<image_name>.jpg
+    |       |...
+    |        
+    |----trash/
+    |       |----<image_name>.jpg
+    |       |----<image_name>.jpg
+    |       |----<image_name>.jpg
+    |       |----<image_name>.jpg
+    |       ...
+    |
+    |----healthy_rem/
+    |       |----<image_name>.jpg
+    |       |----<image_name>.jpg
+    |       |----<image_name>.jpg
+    |       |----<image_name>.jpg
+    |       |...
+    |
+    |____unhealthy/
+            |----<image_name>.jpg
+            |----<image_name>.jpg
+            |----<image_name>.jpg
+            |----<image_name>.jpg
+            |...
+
+sorting --- directory with sorting.py
+to_sort --- directory with images you want to sort
+trash --- directory with trash images after running script
+healthy_rem and unhealthy --- directories with healthy faces and unhealthy respectively 
+
+when you type ```python sorting.py``` you will see window with current image you sorting right now
+There are some keys you can use:
+    h - move image to healthy_rem
+    u - move image to unhealthy
+    q - quit the program
+    t - move image to trash
+
+if you type any other key you will skip picture. Sorry thats just for a while.
+
+2. configure_YOLO_dataset.py
+This is script which will create folders [train, val, train/healthy, train/unhealthy, val/healthy, val/unhealthy]
+and from directories "healthy" and "unhealthy" from working directory it will sort pictures to created folders with 20:80 ratio
+
+
+3. create_csv_from_images.py
+Create csv file with all images in folder "data/processed/disease" and "data/processed/healthy" with features we made with isGood value 0/1 respectively to directory which we took the file from
+
+4. crop_face.py
+Use it if you has webcamera
+
+It shows you a window with your face and highlited area of your eyes and face with numbers of mean values of Blue, Green and Red channels of area.
+In the left upside corner you can see mean  BGR values of your face
+
+WORK CORRECT ONLY WITH ONE FACE in the picture
+
+5. cropping_face.py
+
+From left directories with images it copies them with cropped faces of peole to right directories
+data/raw/Dataset/healthy_rem ----> data/processed/for_YOLO/healthy
+data/raw/Dataset/unhealthy -----> data/processed/for_YOLO/unhealthy
+
+6. refactor_dataset.py
+

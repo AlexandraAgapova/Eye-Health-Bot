@@ -1,13 +1,10 @@
+import csv
 import cv2
 import mediapipe as mp
 import numpy as np
-import pandas as pd
 import os
-from collections import deque
 
-def process_image(image_path, label):
-    mp_face_mesh = mp.solutions.face_mesh
-    face_mesh = mp_face_mesh.FaceMesh(static_image_mode=True, max_num_faces=1, refine_landmarks=True)
+def process_image(image_path, label, face_mesh):
 
     EYE_LANDMARKS = {
         "left": [417, 441, 442, 443, 444, 445, 342, 265, 340, 280, 330, 329, 277, 343, 412, 465],
@@ -74,28 +71,41 @@ def process_image(image_path, label):
     }
 
 def process_dataset():
-    dataset_dirs = {"../../data/processed/disease": 0, "../../data/processed/healthy": 1}
-    results = []
-    
-    for dir_path, label in dataset_dirs.items():
-        if not os.path.exists(dir_path):
-            print(f"Warning: Directory {dir_path} does not exist.")
-            continue
-        
-        for file_name in os.listdir(dir_path):
-            file_path = os.path.join(dir_path, file_name)
-            if not file_name.lower().endswith((".jpg", ".png", ".jpeg", ".webp")):
-                continue
+
+    mp_face_mesh = mp.solutions.face_mesh
+    with mp_face_mesh.FaceMesh(static_image_mode=True, max_num_faces=1, refine_landmarks=True) as face_mesh:
             
-            result = process_image(file_path, label)
-            if result:
-                results.append(result)
-    
-    df = pd.DataFrame(results)
-    os.makedirs("../../data/processed/csv", exist_ok=True)
-    csv_path = "../../data/processed/csv/eye_disease.csv"
-    df.to_csv(csv_path, sep=';', index=False)
-    print(f"Results saved to {csv_path}")
+        dataset_dirs = {"../../data/processed/disease": 0, "../../data/processed/healthy": 1}
+        
+        # Создаем директорию для результатов
+        output_dir = "../../data/processed/csv"
+        os.makedirs(output_dir, exist_ok=True)
+        csv_path = os.path.join(output_dir, "eye_disease.csv")
+
+        with open(csv_path, 'w', newline='') as csvfile:
+            csvfile.write("ID;mean_R;mean_G;mean_B;R_eye_mean_R;R_eye_mean_G;R_eye_mean_B;L_eye_mean_R;L_eye_mean_G;L_eye_mean_B;is_Good\n")
+
+            for dir_path, label in dataset_dirs.items():
+                if not os.path.exists(dir_path):
+                    print(f"Warning: Directory {dir_path} does not exist.")
+                    continue
+                
+                for file_name in os.listdir(dir_path):
+                    file_path = os.path.join(dir_path, file_name)
+                    if not file_name.lower().endswith((".jpg", ".png", ".jpeg", ".webp")):
+                        continue
+                    
+                    result = process_image(file_path, label, face_mesh)
+                    if result:
+                        for field, value in result.items():
+                            csvfile.write(f"{value}")
+                            if field != "is_Good":
+                               csvfile.write(";") 
+                        csvfile.write("\n")
+
+        
+        print(f"Results saved to {csv_path}")
+
 
 def main():
     process_dataset()
