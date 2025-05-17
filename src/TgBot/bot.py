@@ -6,7 +6,7 @@ from classifier.classifier import models_
 
 model_orchesre = Classifier(models_)
 
-bot = telebot.TeleBot("TOKEN NAME")
+bot = telebot.TeleBot("YOUR_TELEGRAM_BOT_TOKEN")
 helloVarious = {"привет", "Привет", "здарова", "приветик", "Приветик", "Здарова"}
 DATA_DIR = "../../data"
 
