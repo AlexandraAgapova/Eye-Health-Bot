@@ -38,8 +38,8 @@ src/models/YOLO/healthy_unhealthy/runs
 src/models/YOLO/healthy_unhealthy/train
 
 *.pt
-!src/classifier/bags_circles.pt
-!src/classifier/healthy_unhealthy.pt
+!src/models/YOLOv11/bags_circles.pt
+!src/models/YOLOv11/healthy_unhealthy.pt
 
 src/models/data/processed
 

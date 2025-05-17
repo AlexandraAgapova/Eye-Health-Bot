@@ -9,9 +9,9 @@ from classifier.classifier import models_
 
 model_orchesre = Classifier(models_)
 
-bot = telebot.TeleBot("YOUR_TELEGRAM_BOT_TOKEN")
+bot = telebot.TeleBot("TOKEN NAME")
 helloVarious = {"привет", "Привет", "здарова", "приветик", "Приветик", "Здарова"}
-DATA_DIR = "data"
+DATA_DIR = "../../data"
 
 @bot.message_handler(commands=["start"])
 def start_message(message):

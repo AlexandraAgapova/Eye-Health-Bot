@@ -14,6 +14,8 @@ Telegram bot that detects and classifies under-eye conditions (eye bags, dark ci
    - `0` – Healthy eyes  
    - `1` – Eye bags  
    - `2` – Dark circles  
+   - `3` – Dark circles and Eye bags
+
 
 ---
 

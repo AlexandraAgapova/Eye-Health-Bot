@@ -69,8 +69,8 @@ def process_image(image_path) -> tuple:
 
 
 
-path_to_h_u_model = "healthy_unhealthy.pt"
-path_to_b_dc_model = "bags_circles.pt"
+path_to_h_u_model = "../models/YOLOv11/healthy_unhealthy.pt"
+path_to_b_dc_model = "../models/YOLOv11/bags_circles.pt"
 health_un_model = YOLO(path_to_h_u_model)
 bags_dc_model = YOLO(path_to_b_dc_model)
 

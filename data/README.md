@@ -16,6 +16,8 @@ This folder contains the latest photos uploaded by Telegram bot users.
 - `0` – healthy eyes
 - `1` – eye bags
 - `2` – dark circles
+- `3` – dark circles and eye bags
+
 
 The result is then sent back to the user via the Telegram bot along with personalized recommendations.
 
