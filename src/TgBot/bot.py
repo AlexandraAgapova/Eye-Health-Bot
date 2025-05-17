@@ -76,5 +76,6 @@ def download_photo(message):
 
     reply = random.choice(responses.get(prediction, ["⚠️ Произошла ошибка при анализе. Пожалуйста, попробуйте позже."]))
     bot.send_message(user_id, reply)
+    os.remove(file_path)
 
 bot.polling(none_stop=True, interval=0)
