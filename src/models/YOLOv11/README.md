@@ -18,3 +18,4 @@ The model is trained to:
   - `0` – Eyes appear healthy.
   - `1` – Visible under-eye bags.
   - `2` – Noticeable dark circles.
+  - `3` - Both bags and dark circles were found.
