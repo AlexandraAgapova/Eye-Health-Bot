@@ -2,5 +2,7 @@ mediapipe
 opencv-python 
 scikit-learn
 pandas
+random
+os
 pyTelegramBotAPI
 numpy
