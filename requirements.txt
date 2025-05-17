@@ -3,5 +3,4 @@ opencv-python
 scikit-learn
 pandas
 pyTelegramBotAPI
-torch
 numpy
